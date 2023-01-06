@@ -2,9 +2,9 @@
 
 ## Links
 
-Landing page: [https://blooming-thicket-65254.herokuapp.com/](https://blooming-thicket-65254.herokuapp.com/)
+Landing page: [https://ed963.github.io/cube.js/](https://ed963.github.io/cube.js/)
 
-Documentation (API Reference): [https://blooming-thicket-65254.herokuapp.com/api.html](https://blooming-thicket-65254.herokuapp.com/api.html)
+Documentation (API Reference): [https://ed963.github.io/cube.js/api.html](https://ed963.github.io/cube.js/api.html)
 
 ## Getting Started
 
@@ -32,12 +32,12 @@ Then, create the `Cube` by specifying the `id` of the containter element:
 const cube = new Cube("container")
 ```
 
-To see the model that this code generates, see our [getting started page](https://blooming-thicket-65254.herokuapp.com/start.html)
+To see the model that this code generates, see our [getting started page](https://ed963.github.io/cube.js/start.html)
 
 ### A Note on Cube Notation
 
 By default, the model will be rendered in "interactive" mode. This means that there will be a user interface beside the cube with buttons that can be used to rotate the faces of the cube. The letters on the buttons reference standard Rubik's Cube Notation. For more information about Rubik's Cube Notation, see [https://ruwix.com/the-rubiks-cube/notation/](https://ruwix.com/the-rubiks-cube/notation/).
 
-#### Want more advanced usage examples? Check out our [examples page](examples.html)!
+#### Want more advanced usage examples? Check out our [examples page](https://ed963.github.io/cube.js/examples.html)!
 
-#### Want to see all that `cube.js` has to offer? Head over to the [API reference](api.html)!
+#### Want to see all that `cube.js` has to offer? Head over to the [API reference](https://ed963.github.io/cube.js/api.html)!
