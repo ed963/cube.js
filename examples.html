@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Examples</title>
+        <link rel="stylesheet" href="cube.css">
+        <script defer src="js/cube.js"></script>
+
+        <link rel="stylesheet" href="docs.css">
+        <script defer src="js/examples.js"></script>
+
+        <link rel="stylesheet" href="highlight/styles/default.min.css">
+        <script src="highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body>
+        <div id="navbar">
+            <a id="logo" href="/">cube.js</a>
+            <a class="navItem" href="start.html">Getting Started</a>
+            <a class="navItem currentNavItem" href="examples.html">Examples</a>
+            <a class="navItem" href="api.html">API Reference</a>
+        </div>
+
+        <div class="mainContent">
+            <h1>Examples</h1>
+            
+            <h2>Changing the starting orientation</h2>
+            <div class="text">
+                The <code>start</code> option can be used to specify an orientation for the cube to start off in.
+            </div>
+            <div class="center">
+                <div id="container1"></div>
+            </div>
+
+            <h4>HTML</h4>
+            <pre>
+<code>&ltdiv id="container1"&gt&lt/div&gt</code>
+            </pre>
+
+            <h4>JavaScript</h4>
+            <pre>
+<code>const cube1 = new Cube("container1", {
+    start: ["R", "R", "L'", "L'", "U", "U", "R", "R", "L'", "L'", "D", "D"]
+})</code>
+            </pre>
+
+            <h2>Using preset mode</h2>
+            <div class="text">
+                To display the cube in preset mode, set the <code>mode</code> option to <code>"preset"</code>.
+            </div>
+            <div class="center">
+                <div id="container2"></div>
+            </div>
+
+                <h4>HTML</h4>
+                <pre>
+<code>&ltdiv id="container2"&gt&lt/div&gt</code>
+                </pre>
+
+            <h4>JavaScript</h4>
+            <pre>
+<code>const cube2 = new Cube("container2", {
+    mode: "preset", 
+    start: ["R", "U", "R'", "U'", "R'", "F", "R", "R", "U'", "R'", "U'", "R", "U", "R'", "F'"], 
+    sequence: ["R", "U", "R'", "U'", "R'", "F", "R", "R", "U'", "R'", "U'", "R", "U", "R'", "F'"],
+})</code>
+            </pre>
+
+            <h2>Hiding the user interface</h2>
+            <div class="text">
+                <code>cube.js</code>'s <a href="api.html">API</a> methods give developers the tools to build their own user interface.
+                
+                Developers who wish to hide the default user interface can do so by setting the <code>hideInterface</code> option to 
+                <code>true</code>.
+            </div>
+            <div class="center">
+                <div id="container3"></div>
+                <div>
+                    <button id="fancy-f-button" class="button-fancy">
+                        Clockwise rotation of front face
+                    </button>
+                </div>
+            </div>
+
+                <h4>HTML</h4>
+                <pre>
+<code>&ltdiv id="container3"&gt&lt/div&gt
+&ltdiv&gt
+    &ltbutton id="fancy-f-button"&gt
+        Clockwise rotation of front face
+    &lt/button&gt
+&lt/div&gt</code>
+                </pre>
+
+            <h4>JavaScript</h4>
+            <pre>
+<code>const cube3 = new Cube("container3", {
+    hideInterface: true,
+    start: ["X"]
+})
+
+document.querySelector("#fancy-f-button").addEventListener("click", () => {
+    cube3.F()
+})</code>
+            </pre>
+
+            <h2>Specifying an <code>onClick</code> callback</h2>
+            <div class="text">
+                For developers who don't want to go through the trouble of designing their own user interface,
+                but still wish to customize the behaviour of the default user interface, <code>cube.js</code> provides
+                a way to specify a function to be called whenever the user clicks a button on the default user interface.
+                
+                </br></br>
+                
+                The following example uses the <code>onClick</code> option to implement a move counter and a timer.
+            </div>
+            <div class="center">
+                <div id="container4"></div>
+                <div class="text">
+                    <span id="move-count">0</span> moves made</br>
+                    <span id="time">0</span> seconds
+                </div>
+            </div>
+
+                <h4>HTML</h4>
+                <pre>
+<code>&ltdiv id="container4"&gt&lt/div&gt
+&ltdiv&gt
+    &ltspan id="move-count"&gt0&lt/span&gt moves made&lt/br&gt
+    &ltspan id="time"&gt0&lt/span&gt seconds
+&lt/div&gt</code>
+                </pre>
+
+            <h4>JavaScript</h4>
+            <pre>
+<code>let numMoves = 0;
+let timerStarted = false;
+
+function incrementTimer() {
+    document.querySelector("#time").innerHTML = parseInt(document.querySelector("#time").innerHTML) + 1;
+}
+
+function incrementCount() {
+    numMoves++;
+    document.querySelector("#move-count").innerHTML = numMoves;
+}
+
+const cube4 = new Cube("container4", {
+    onClick: () => {
+        incrementCount();
+        if (!timerStarted) {
+            timerStarted = true;
+            setInterval(incrementTimer, 1000);
+        }
+    },
+    start: ["X", "Y"]
+})</code>
+            </pre>
+
+            <h2>Using the <code>isSolved</code> and <code>scramble</code> methods</h2>
+            <div class="text">
+                These methods give developers more tools that they can use to develop additional features and
+                integrate <code>cube.js</code> into their own web applications.
+            </div>
+            <div class="center">
+                <div id="container5"></div>
+                <div>
+                    <button id="scramble-button" class="button-fancy">
+                        Scramble cube
+                    </button>
+                </div>
+                <div class="text">
+                    <span id="is-solved">The cube is currently solved!</span>
+                </div>
+            </div>
+
+                <h4>HTML</h4>
+                <pre>
+<code>&ltdiv id="container5"&gt&lt/div&gt
+&ltdiv&gt
+    &ltbutton id="scramble-button"&gt
+        Scramble cube
+    &lt/button&gt
+&lt/div&gt
+&ltdiv&gt
+    &ltspan id="is-solved"&gtThe cube is currently solved!&lt/span&gt
+&lt/div&gt</code>
+                </pre>
+
+            <h4>JavaScript</h4>
+            <pre>
+<code>const cube5 = new Cube("container5", {
+    onClick: updateIsSolved,
+    start: ["Y", "Y"]
+})
+
+function updateIsSolved() {
+    const isSolved = document.querySelector("#is-solved")
+    if (cube5.isSolved()) {
+        isSolved.innerHTML = "The cube is currently solved!"
+        isSolved.style.color = "green"
+    }
+    else {
+        isSolved.innerHTML = "The cube is NOT currently solved!"
+        isSolved.style.color = "red"
+    }
+}
+
+document.querySelector("#scramble-button").addEventListener("click", () => {
+    cube5.scramble()
+    updateIsSolved()
+})
+
+updateIsSolved()</code>
+            </pre>
+        </div>
+    </body>
+</html>

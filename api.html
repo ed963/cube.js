@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API Reference</title>
+        <link rel="stylesheet" href="cube.css">
+        <script defer src="js/cube.js"></script>
+
+        <link rel="stylesheet" href="docs.css">
+        <script defer src="js/examples.js"></script>
+
+        <link rel="stylesheet" href="highlight/styles/default.min.css">
+        <script src="highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body>
+        <div id="navbar">
+            <a id="logo" href="/">cube.js</a>
+            <a class="navItem" href="start.html">Getting Started</a>
+            <a class="navItem" href="examples.html">Examples</a>
+            <a class="navItem currentNavItem" href="api.html">API Reference</a>
+        </div>
+
+        <div class="mainContent">
+            <h1>API Reference</h1>
+
+            <h2><code>Cube</code></h2>
+            
+            <div class="text">
+                Rubik's cube models can be created by instantiating new <code>Cube</code> objects. 
+                <code>Cube</code> objects store information about the state of the cube, and contain the methods that can be used 
+                to interact with the model.
+                </br></br>
+                The constructor takes two parameters:
+                <ul>
+                    <li>
+                        <strong><code>frameID</code></strong> <em>(Required)</em>: The id of the <code>&ltdiv&gt</code> element that will serve as the container
+                        for the Rubik's cube model.
+                    </li>
+                    <li>
+                        <strong><code>options</code></strong>: An object containing additional options for the model.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Options</h3>
+            <div class="text">
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Default</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>mode</td>
+                        <td><code>"interactive"</code></td>
+                        <td>String</td>
+                        <td>Defines the appearence of the user interface section. One of "interactive" or "preset".</td>
+                    </tr>
+                    <tr>
+                        <td>start</td>
+                        <td><code>[]</code></td>
+                        <td>Array of Strings</td>
+                        <td>
+                            The default starting orientation of the cube is blue in front and yellow on top.
+                            </br></br>
+                            A different starting orientation can be specified by setting <code>start</code>to be an array of moves 
+                            (specified using <a href="https://ruwix.com/the-rubiks-cube/notation/">standard cube notation</a>).
+                            These moves will be applied to the default starting orientation to obtain a new starting orientation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>sequence</td>
+                        <td><code>[]</code></td>
+                        <td>Array of Strings</td>
+                        <td>
+                            Defines the pre-set sequence of moves that the user can cycle through (in "preset" mode).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>hideInterface</td>
+                        <td><code>false</code></td>
+                        <td>Boolean</td>
+                        <td>
+                            Defines whether the default user interface is shown.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>onClick</td>
+                        <td><code>undefined</code></td>
+                        <td>Function</td>
+                        <td>
+                            Defines a callback function to be invoked whenever the user clicks a button in the user interface.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Methods</h3>
+            <div class="text">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>R</code>, <code>RPrime</code>, <code>L</code>, <code>LPrime</code>, <code>U</code>, <code>UPrime</code>, 
+                            <code>D</code>, <code>DPrime</code>, <code>F</code>, <code>FPrime</code>, <code>B</code>, <code>BPrime</code>, 
+                            <code>X</code>, <code>XPrime</code>, <code>Y</code>, <code>YPrime</code>, <code>Z</code>, <code>ZPrime</code>
+                        </td>
+                        <td>These methods modify the cube by performing a move (specified using <a href="https://ruwix.com/the-rubiks-cube/notation/">
+                        standard cube notation</a>).</td>
+                    </tr>
+                    <tr>
+                        <td><code>isSolved</code></td>
+                        <td>Return whether the cube is in a solved state.</td>
+                    </tr>
+                    <tr>
+                        <td><code>scramble</code></td>
+                        <td>Scramble the cube using a sequence of random moves.</td>
+                    </tr>
+                    <tr>
+                        <td><code>next</code></td>
+                        <td>Apply the next move in the pre-set sequence of moves (if such a move exists).</td>
+                    </tr>
+                    <tr>
+                        <td><code>previous</code></td>
+                        <td>Reverse the previous move in the pre-set sequence of moves (if such a move exists).</td>
+                    </tr>
+                </table>
+            </div>
+
+            
+        </div>
+    </body>
+</html>

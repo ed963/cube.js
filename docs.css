@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    background-color: #e6ecf0;
+}
+
+h1, h2, h3, h4 {
+    font-family: Georgia, serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+code {
+    font-family: Consolas,"courier new";
+    padding: 2px;
+    font-size: 105%;
+}
+
+.text {
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+.center {
+    text-align: center;
+}
+
+#puzzleHeader {
+    margin-top: 100px;
+}
+
+#navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+#logo {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.navItem {
+    float: left;
+    color: #dbdbdb;
+    text-align: center;
+    padding: 21.2px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navItem:hover {
+    color: white;
+}
+
+.navButton {
+    color: rgb(80, 80, 80);
+    text-align: center;
+    padding: 10px;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    border: 2px solid rgb(80, 80, 80);
+    transition: 100ms;
+}
+
+.navButton:hover {
+    color: black;
+    border: 2px solid black;
+}
+
+.navButtonContainer {
+    padding-top: 30px;
+}
+
+.currentNavItem {
+    color: white;
+}
+
+.mainContent {
+    margin: 35px 250px;
+}
+
+.mainTitle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    color: #333;
+}
+
+.description {
+    font-size: x-large;
+    color: #333;
+}
+
+.button-fancy {
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    margin-bottom: 20px;
+  }
+  
+  .button-fancy:hover {
+    background-color: #F082AC;
+  }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
